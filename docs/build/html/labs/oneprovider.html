@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1. Deployment of Oneprovider &mdash; fs2od 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. fs2od utility" href="fs2od.html" />
+    <link rel="prev" title="6. Integratio with Scipion" href="../user/scipion.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> fs2od
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/usecases.html">2. Use cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/roles.html">3. Involved parties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/components.html">4. System components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction/setup.html">5. Distributed setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User access to the data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/link.html">1. Access Link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/download_all.html">2. Batch dataset download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/checkin.html">3. Access with EGI CheckIn credentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/mount.html">4. Mount on a local computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/replica.html">5. Data archival</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/scipion.html">6. Integratio with Scipion</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Setup at facility</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Deployment of Oneprovider</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">1.1. Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-environment-for-containers-running">1.2. Prepare environment for containers running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-environment-for-oneprovider">1.3. Prepare environment for Oneprovider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-oneprovider">1.4. Installation of Oneprovider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-of-oneprovider">1.5. Configuration of Oneprovider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitor-of-oneprovider-container">1.6. Monitor of Oneprovider container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-oneprovider-to-a-new-version">1.7. Update Oneprovider to a new version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fs2od.html">2. fs2od utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="archiving_expiring.html">3. Archiving and expiring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">4. Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">5. Metadata database</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">fs2od</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">1. </span>Deployment of Oneprovider</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/labs/oneprovider.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="deployment-of-oneprovider">
+<h1><span class="section-number">1. </span>Deployment of Oneprovider<a class="headerlink" href="#deployment-of-oneprovider" title="Permalink to this heading"></a></h1>
+<p>There are several possibilities how to install and deploy Oneprovider service. All options you can find in documentation of Onedata (<a class="reference external" href="https://onedata.org/#/home/documentation">https://onedata.org/#/home/documentation</a>). In this tutorial we describe deployment of Onedata service using Docker.</p>
+<section id="requirements">
+<h2><span class="section-number">1.1. </span>Requirements<a class="headerlink" href="#requirements" title="Permalink to this heading"></a></h2>
+<p>Requirements to run Oneprovider are described in official documentation as shown in the table. We recommend use Optimal setting. In following text there is described One provider deployment for usage of up to 100 users, for more sophisticated deployment please see Onedata documentation (<a class="reference external" href="https://onedata.org/#/home/documentation/stable/doc/administering_onedata/oneprovider_tutorial.html">https://onedata.org/#/home/documentation/stable/doc/administering_onedata/oneprovider_tutorial.html</a>).</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Requirements of Oneprovider</span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p>Requirement</p></th>
+<th class="head"><p>Minimum</p></th>
+<th class="head"><p>Optimal</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>Virtual CPU</p></th>
+<td><p>8</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>RAM</p></th>
+<td><p>32GB</p></td>
+<td><p>64GB</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Local disk</p></th>
+<td><p>SSD</p></td>
+<td><p>SSD</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Local storage space</p></th>
+<td><p>20GB + 8MB for each 1000 files</p></td>
+<td><p>40GB + 8MB for each 1000 files</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Operating system</p></th>
+<td><p>Any Docker compatible</p></td>
+<td><p>Any Docker compatible</p></td>
+</tr>
+</tbody>
+</table>
+<p>(<a class="reference external" href="https://onedata.org/#/home/documentation/stable/doc/system_requirements.html">https://onedata.org/#/home/documentation/stable/doc/system_requirements.html</a>)</p>
+</section>
+<section id="prepare-environment-for-containers-running">
+<h2><span class="section-number">1.2. </span>Prepare environment for containers running<a class="headerlink" href="#prepare-environment-for-containers-running" title="Permalink to this heading"></a></h2>
+<p>At first is needed to install Docker subsystem. Installation steps depends on your operating system. Installation instruction you can find at official documentation (<a class="reference external" href="https://docs.docker.com/get-docker">https://docs.docker.com/get-docker</a>). After installation may be needed to add your user to group which has access to Docker.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># create group docker (might not be necessary)</span>
+sudo groupadd docker
+<span class="c1"># add user defined in variable $USER to group docker</span>
+sudo usermod -aG docker <span class="nv">$USER</span>
+</pre></div>
+</div>
+<p>Next you need to get tool Docker compose. Steps for your architecture are described at <a class="reference external" href="https://docs.docker.com/compose/install">https://docs.docker.com/compose/install</a></p>
+</section>
+<section id="prepare-environment-for-oneprovider">
+<h2><span class="section-number">1.3. </span>Prepare environment for Oneprovider<a class="headerlink" href="#prepare-environment-for-oneprovider" title="Permalink to this heading"></a></h2>
+<p>Following script-like text was created from Onedata documentation. Go through the script command by command and execute commands that you see are appropriate for your case.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">## Increase maximum number of opened files</span>
+<span class="c1"># In order to install Oneprovider service on one of the supported operating systems, first make sure that the maximum limit of opened files is sufficient (preferably 63536, but below /proc/sys/fs/file-max). The limit can be checked using:</span>
+<span class="nb">ulimit</span> -n
+
+<span class="c1"># If necessary, increase the limit using:</span>
+sudo sh -c <span class="s1">&#39;echo &quot;* soft nofile 63536&quot; &gt;&gt; /etc/security/limits.conf&#39;</span>
+sudo sh -c <span class="s1">&#39;echo &quot;* hard nofile 63536&quot; &gt;&gt; /etc/security/limits.conf&#39;</span>
+
+<span class="c1"># It might be also necessary to setup the limit in /etc/systemd/system.conf:</span>
+sudo sh -c <span class="s1">&#39;echo DefaultLimitNOFILE=65536 &gt;&gt; /etc/systemd/system.conf&#39;</span>
+sudo systemctl daemon-reexec
+
+<span class="c1">## Swap preference settings</span>
+<span class="c1"># Make sure that the swap preference (i.e. swappiness) is set to 0 (or at most 1 - see here for details):</span>
+cat /proc/sys/vm/swappiness
+
+<span class="c1"># and if necessary decrease it using:</span>
+sudo sh -c <span class="s1">&#39;echo &quot;vm.swappiness=0&quot; &gt;&gt; /etc/sysctl.d/50-swappiness.conf&#39;</span>
+
+<span class="c1">## Disable Transparent Huge Pages feature</span>
+<span class="c1"># By default, many Linux machines have the Transparent Huge Pages feature enabled, which somehwat improves performance of machines running multiple application at once (e.g. desktop operation systems), however it deteriorates the performance of most database-heavy applications, such as Oneprovider.</span>
+<span class="c1"># These settings can be checked using the following commands (the output shown below presents the expected settings):</span>
+cat /sys/kernel/mm/transparent_hugepage/enabled
+always madvise <span class="o">[</span>never<span class="o">]</span>
+cat /sys/kernel/mm/transparent_hugepage/defrag
+always madvise <span class="o">[</span>never<span class="o">]</span>
+
+<span class="c1"># If any of the settings is different than the above, they should be changed permanently, which can be achieved for instance by creating a simple systemd</span>
+<span class="c1"># unit file /etc/systemd/system/disable-thp.service:</span>
+<span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>Disable Transparent Huge Pages
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Type</span><span class="o">=</span>oneshot
+<span class="nv">ExecStart</span><span class="o">=</span>/bin/sh -c <span class="s2">&quot;/bin/echo &#39;never&#39; | /usr/bin/tee /sys/kernel/mm/transparent_hugepage/enabled&quot;</span>
+<span class="nv">ExecStart</span><span class="o">=</span>/bin/sh -c <span class="s2">&quot;/bin/echo &#39;never&#39; | /usr/bin/tee /sys/kernel/mm/transparent_hugepage/defrag&quot;</span>
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+<span class="c1"># and enabling it on system startup using:</span>
+sudo systemctl <span class="nb">enable</span> disable-thp.service
+sudo systemctl start disable-thp.service
+<span class="c1"># Reboot system after this configuration.</span>
+sudo reboot
+</pre></div>
+</div>
+</section>
+<section id="installation-of-oneprovider">
+<h2><span class="section-number">1.4. </span>Installation of Oneprovider<a class="headerlink" href="#installation-of-oneprovider" title="Permalink to this heading"></a></h2>
+<p>Prepare following directory structure where Oneprovider container stores its configuration and persistent data. Of course, you can choose another name for the base folder. In this example is used folder <code class="docutils literal notranslate"><span class="pre">/opt/onedata/datahub/</span></code>. This directory will contain important operational data for Oneprovider. Whole this folder must be  backed up with appropriate tools and strategies used at the site.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># folder for configuration and persistent data of Oneprovider</span>
+sudo mkdir -p /opt/onedata/datahub/oneprovider
+sudo mkdir /opt/onedata/datahub/oneprovider/cacerts
+sudo mkdir /opt/onedata/datahub/oneprovider/persistence
+<span class="c1"># create a folder where data itself can be stored or use an existing</span>
+sudo mkdir -p /var/onedata/storage
+</pre></div>
+</div>
+<p>Chdir to newly created directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /opt/onedata/datahub/oneprovider
+</pre></div>
+</div>
+<p>Download text file with configuration of Oneprovider container (<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>).</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2.0&#39;</span><span class="w"></span>
+
+<span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<span class="w">   </span><span class="nt">oneprovider</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># Oneprovider Docker image version</span><span class="w"></span>
+<span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">onedata/oneprovider:20.02.17</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># Hostname should be the domain name by which is the Oneprovider accesible from the Internet</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># hostname: ip-147-251-21-116.flt.cloud.muni.cz</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># Optional, in case Docker containers have no DNS access</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># dns: 8.8.8.8</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># Host network mode is preferred, but on some systems may not work (e.g. CentOS)</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># then use bridge and uncomment ports section</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># in the host mode all ports are exposed from container</span><span class="w"></span>
+<span class="w">      </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># Expose the necessary ports from Oneprovider container to the host</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># Ports section can be commented when using &quot;network_mode: host&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="c1">#ports:</span><span class="w"></span>
+<span class="w">      </span><span class="c1">#  - &quot;80:80&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="c1">#  - &quot;443:443&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="c1">#  - &quot;6665:6665&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="c1">#  - &quot;9443:9443&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="c1"># Restart policy</span><span class="w"></span>
+<span class="w">      </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span><span class="w"></span>
+
+<span class="w">      </span><span class="c1"># Mapping of volumes to Oneprovider container</span><span class="w"></span>
+<span class="w">      </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span><span class="w"></span>
+<span class="w">         </span><span class="c1"># Oneprovider runtime files</span><span class="w"></span>
+<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/opt/onedata/datahub/oneprovider/persistence:/volumes/persistence&quot;</span><span class="w"></span>
+<span class="w">         </span><span class="c1"># Data storage directories</span><span class="w"></span>
+<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/var/onedata/storage:/volumes/storage&quot;</span><span class="w"></span>
+<span class="w">         </span><span class="c1"># Additional, trusted CA certificates (all files from this directory will be added)</span><span class="w"></span>
+<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;/opt/onedata/datahub/oneprovider/cacerts:/etc/op_worker/cacerts&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Open the file in a text editor. You can edit desired version of Oneprovider. You can check the newest version of Oneprovider image on the Docker Hub (<a class="reference external" href="https://hub.docker.com/r/onedata/oneprovider/tags">https://hub.docker.com/r/onedata/oneprovider/tags</a>). Please keep in mind that you cannot use newer version of Oneprovider than is a version of used Onezone. For detailed information about compatibility see <a class="reference external" href="https://onedata.org/#/home/versions">https://onedata.org/#/home/versions</a>. You can edit location of folders with persistent data on the host node. You have to fill in domain name of new Oneprovider.</p>
+<p>The Oneprovider should be accessible by this name from the Internet and from the local host.  Check the hostname of the physical node, e.g. by command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hostname -f
+</pre></div>
+</div>
+<p>and fill to the file value of displayed hostname.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">hostname</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example.domain.eu</span><span class="w"></span>
+</pre></div>
+</div>
+<p>If you are behind a NAT, the hostname command can return incorrect output. You have to check your real domain name. In this case you should add following line to <code class="docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file. The line ensures that the selected domain address will be resolved to the local node.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">127.0.0.1</span> <span class="n">example</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">eu</span>
+</pre></div>
+</div>
+<p>Download Oneprovider docker image from Docker Hub , it can take several minutes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose pull
+</pre></div>
+</div>
+<p>Running the container</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Following command open web server on node where the container is run, which listen on the port 9433. Is important to block access to this port by some else.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose up -d --no-recreate
+</pre></div>
+</div>
+<p>In docker-compose file there is specified restart policy to run the container <code class="docutils literal notranslate"><span class="pre">unless-stopped</span></code>. So the container run also after reboot of the host (in case of  docker daemon is run automatically after reboot – this is a default behaviour).</p>
+<p>You can always see live output of Oneprovider container by command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose logs --follow --timestamps --tail <span class="m">100</span>
+</pre></div>
+</div>
+<p>The first start-up of the container can last for a few minutes. The process is done when you see in the log output the message
+Cluster initialized successfully</p>
+</section>
+<section id="configuration-of-oneprovider">
+<h2><span class="section-number">1.5. </span>Configuration of Oneprovider<a class="headerlink" href="#configuration-of-oneprovider" title="Permalink to this heading"></a></h2>
+<p>In following steps, the setup of Oneprovider will be done.
+Access by web browser URL <a class="reference external" href="https://example.domain.eu:9443">https://example.domain.eu:9443</a>. Beginning of Onepanel installation is done through web browser with self-signed certificate. Your browser will alert you about this, but this is expected. During this process valid Let’s Encrypt certificate will be generated. This certificate will be used for further communication. You can also use your own certificate.</p>
+<a class="reference internal image-reference" href="../_images/02_OP_setup.png"><img alt="Beginning of Oneprovider setup" class="align-center" src="../_images/02_OP_setup.png" style="width: 500px;" /></a>
+<p>Choose <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">cluster</span></code> and on the following screen click on the button <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Oneprovider</span> <span class="pre">cluster</span></code>.</p>
+<a class="reference internal image-reference" href="../_images/03_OP_setup.png"><img alt="Oneprovider welcome page" class="align-center" src="../_images/03_OP_setup.png" style="width: 500px;" /></a>
+<p>Fill in an emergency passphrase. Save the passphrase to a safe place. In can be used in situation when you lost access to Oneprovider through external identity provider.</p>
+<a class="reference internal image-reference" href="../_images/04_OP_passphraze.png"><img alt="Setup of passphraze" class="align-center" src="../_images/04_OP_passphraze.png" style="width: 500px;" /></a>
+<p>Because you install a new cluster select first four possibilities (Database, Cluster Worker, Cluster Manager, Primary Cluster Manager). On the contrary, leave the Ceph option unchecked. After this you can click on the <code class="docutils literal notranslate"><span class="pre">Deploy</span></code> button.</p>
+<a class="reference internal image-reference" href="../_images/05_OP_cluster_setup.png"><img alt="Cluster setup" class="align-center" src="../_images/05_OP_cluster_setup.png" style="width: 500px;" /></a>
+<p>It take some time. Afer the cluster is deployed, the web interface prompts for a registration token:</p>
+<a class="reference internal image-reference" href="../_images/06_OP_registration.png"><img alt="Registration Oneprovider to Onezone" class="align-center" src="../_images/06_OP_registration.png" style="width: 500px;" /></a>
+<p>Now you have to register your new deployed Oneprovider to Onezone service . In this manual we will use well established Onezone instance <code class="docutils literal notranslate"><span class="pre">EGI</span> <span class="pre">DATAHUB</span></code> located on URL <a class="reference external" href="https://datahub.egi.eu">https://datahub.egi.eu</a>. Registration process is described in the browser or bellow.</p>
+<p>In a new browser window or pane open URL <a class="reference external" href="https://datahub.egi.eu">https://datahub.egi.eu</a> sign-in with your EGI identity through EGI Check-in (blue icon). You can choose from various identity providers. You can use your identity from your institution (recommended) if your institution is on the list. You can also use your social identity (Google account, …).</p>
+<a class="reference internal image-reference" href="../_images/07__OZ_sign_in.png"><img alt="Onezone sign in page" class="align-center" src="../_images/07__OZ_sign_in.png" style="width: 500px;" /></a>
+<p>After successful login you will see Onezone web interface. Now you have to add newly developed cluster to your user account.  To add a new cluster go to:</p>
+<p class="centered">
+<strong>CLUSTERS &gt; Plus sign (Adding a new cluster)</strong></p><a class="reference internal image-reference" href="../_images/08_OZ_clusters.png"><img alt="Cluster management in Onezone" class="align-center" src="../_images/08_OZ_clusters.png" style="width: 500px;" /></a>
+<p>Copy token from Onezone web interface to Oneprovider.</p>
+<a class="reference internal image-reference" href="../_images/09_OP_registration.png"><img alt="" class="align-center" src="../_images/09_OP_registration.png" style="width: 500px;" /></a>
+<p>Fill in basic information about Oneprovider. Provider name will see users e.g. in web interface. Subdomain will be used e.g by users in parameters of Oneclient.</p>
+<a class="reference internal image-reference" href="../_images/10_OP_registration.png"><img alt="Registering Oneprovider" class="align-center" src="../_images/10_OP_registration.png" style="width: 500px;" /></a>
+<p>Check IP address of Oneprovider. Prefilled value should be the right value.</p>
+<a class="reference internal image-reference" href="../_images/11_IP_address.png"><img alt="Cluster IP address" class="align-center" src="../_images/11_IP_address.png" style="width: 500px;" /></a>
+<p>After DNS check  (it may take a while)  you can request for Let’s Encrypt certificate. If necessary, you can use certificate from another authority.</p>
+<a class="reference internal image-reference" href="../_images/12_certificate.png"><img alt="Setup certificate" class="align-center" src="../_images/12_certificate.png" style="width: 500px;" /></a>
+<p>If you have done previous steps, your Oneprovider is set up.</p>
+</section>
+<section id="monitor-of-oneprovider-container">
+<h2><span class="section-number">1.6. </span>Monitor of Oneprovider container<a class="headerlink" href="#monitor-of-oneprovider-container" title="Permalink to this heading"></a></h2>
+<p>You can see the live log of Oneprovider:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose -f docker-compose.yml logs --follow
+</pre></div>
+</div>
+<p>The system resources used by Oneprovider and other containers can be monitored by command:
+docker stats</p>
+</section>
+<section id="update-oneprovider-to-a-new-version">
+<h2><span class="section-number">1.7. </span>Update Oneprovider to a new version<a class="headerlink" href="#update-oneprovider-to-a-new-version" title="Permalink to this heading"></a></h2>
+<p>Is strongly recommended to keep Oneprovider up to date. You can check existence of a new version of Oneprovider image on Docker hub. The condition for installing a new version of Oneprovider is that Onezone have to be at least in the same version ad Oneprovider. The Onezone version you can see in the left bottom corner of its web interface. If the version of Onezone is less that desired new version of Oneprovider, it is needed first update Onezone.
+To update Oneprovider edit the version number in <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Oneprovider Docker image version</span>
+<span class="n">image</span><span class="p">:</span> <span class="n">onedata</span><span class="o">/</span><span class="n">oneprovider</span><span class="p">:</span><span class="mf">20.02.13</span>
+</pre></div>
+</div>
+<p>Then download the new image by command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose -f docker-compose.yml pull
+</pre></div>
+</div>
+<p>Keep in the mind that for the duration of update process the Oneprovider is not available for user requests. The update process you can run by command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose -f docker-compose.yml up -d --no-recreate
+</pre></div>
+</div>
+<p>After update check if all provided services are all right.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../user/scipion.html" class="btn btn-neutral float-left" title="6. Integratio with Scipion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fs2od.html" class="btn btn-neutral float-right" title="2. fs2od utility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Masaryk University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Distributed setup &mdash; fs2od 0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Access Link" href="../user/link.html" />
+    <link rel="prev" title="4. System components" href="components.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> fs2od
+          </a>
+              <div class="version">
+                0.1.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usecases.html">2. Use cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="roles.html">3. Involved parties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="components.html">4. System components</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Distributed setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#experimental-facility">5.1. Experimental facility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#community-national-storage-site">5.2. Community/national storage site</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compute-site">5.3. Compute site</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User access to the data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user/link.html">1. Access Link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/download_all.html">2. Batch dataset download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/checkin.html">3. Access with EGI CheckIn credentials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/mount.html">4. Mount on a local computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/replica.html">5. Data archival</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user/scipion.html">6. Integratio with Scipion</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Setup at facility</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../labs/oneprovider.html">1. Deployment of Oneprovider</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/fs2od.html">2. fs2od utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/archiving_expiring.html">3. Archiving and expiring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/performance.html">4. Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/metadata.html">5. Metadata database</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">fs2od</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>Distributed setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/introduction/setup.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="distributed-setup">
+<h1><span class="section-number">5. </span>Distributed setup<a class="headerlink" href="#distributed-setup" title="Permalink to this heading"></a></h1>
+<p>The following diagram illustrates how the compontents of are distributed over the sites forming the whole ecosystem
+and how they interact with one another.</p>
+<img alt="../_images/schema.pdf" src="../_images/schema.pdf" />
+<section id="experimental-facility">
+<h2><span class="section-number">5.1. </span>Experimental facility<a class="headerlink" href="#experimental-facility" title="Permalink to this heading"></a></h2>
+<p>Besides the experimental equipment (microscope etc.) the site must provide storage for the acquired data.
+Typically, it is organized as a standard POSIX filesystem, which is mounted on the computer(s) where the data
+are actually acquired.</p>
+<p>Datasets corresponding to individual experiments are stored in separate folders.</p>
+<p>On top of the same filesystem, <code class="docutils literal notranslate"><span class="pre">Oneprovider</span></code> and <code class="docutils literal notranslate"><span class="pre">fs2od</span></code> must be run.</p>
+<p>Once the experimental data should be published (either the experiment is finished or it is desirable to let
+the user “peak” into the data), the facility operator creates a metadata file in the same folder.
+Typically, software specific to experimental data type is used to do so.</p>
+<p>Existence of the metadata file triggers the activity of fs2od, which creates a corresponding space in Onedata, generates
+its access link and invite token, and stores this information back to the metadata file.
+This is an example how such metadata file can look afterwards (truncated):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Autoname</span><span class="p">:</span> <span class="mi">20211227125</span><span class="n">_Demo</span>
+<span class="n">Center</span><span class="p">:</span> <span class="n">CEMCOF</span><span class="p">,</span><span class="n">EM</span><span class="o">-</span><span class="n">Instruct</span><span class="o">-</span><span class="n">CZ</span><span class="p">,</span><span class="n">Brno</span>
+<span class="n">DataId</span><span class="p">:</span> <span class="mi">08</span><span class="n">d9c8eb</span><span class="o">-</span><span class="mi">6</span><span class="n">f63</span><span class="o">-</span><span class="mi">408</span><span class="n">b</span><span class="o">-</span><span class="mi">8743</span><span class="o">-</span><span class="mi">84496</span><span class="n">f1de767</span>
+<span class="n">Instrument</span><span class="p">:</span> <span class="n">TitanKrios</span>
+<span class="n">NotifyCompletion</span><span class="p">:</span> <span class="n">true</span>
+<span class="n">Sample</span><span class="p">:</span>
+  <span class="n">File</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+  <span class="n">Id</span><span class="p">:</span> <span class="mi">08</span><span class="n">d9c1f9</span><span class="o">-</span><span class="n">df4c</span><span class="o">-</span><span class="mi">4058</span><span class="o">-</span><span class="mi">86</span><span class="n">bd</span><span class="o">-</span><span class="mi">15</span><span class="n">da1ec443be</span>
+  <span class="n">Identifier</span><span class="p">:</span> <span class="s1">&#39;&#39;</span>
+  <span class="n">KeywordsStr</span><span class="p">:</span> <span class="mi">70</span><span class="n">S</span><span class="p">;</span> <span class="n">ribosome</span><span class="p">;</span> <span class="n">rnap</span><span class="p">;</span> <span class="n">E</span><span class="o">.</span><span class="n">coli</span><span class="p">;</span> <span class="n">transcription</span>
+  <span class="n">Name</span><span class="p">:</span> <span class="mi">70</span><span class="n">S_RNAP</span>
+<span class="n">Subexperiments</span><span class="p">:</span> <span class="p">[]</span>
+<span class="n">Type</span><span class="p">:</span> <span class="n">SPA</span>
+<span class="n">User</span><span class="p">:</span>
+  <span class="n">Affiliation</span><span class="p">:</span> <span class="n">CEITEC</span><span class="p">,</span> <span class="n">Masaryk</span> <span class="n">University</span><span class="p">,</span> <span class="n">Kamenice</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">62500</span> <span class="n">Brno</span><span class="p">,</span> <span class="n">Czech</span> <span class="n">Republic</span>
+  <span class="n">DisplayName</span><span class="p">:</span> <span class="n">Undisclosed</span> <span class="n">User</span>
+  <span class="n">Email</span><span class="p">:</span> <span class="n">blahblah</span><span class="nd">@ceitec</span><span class="o">.</span><span class="n">muni</span><span class="o">.</span><span class="n">cz</span>
+<span class="n">UserType</span><span class="p">:</span> <span class="n">internal</span>
+<span class="n">Err</span><span class="p">:</span> <span class="n">null</span>
+<span class="n">Onedata</span><span class="p">:</span>
+  <span class="n">Space</span><span class="p">:</span> <span class="n">c265f2cc65a1bc1835929288be145d72ch458a</span>
+  <span class="n">InviteToken</span><span class="p">:</span> <span class="n">MDAxY2xvY2F0dhZHkbadf999gkaIuZWdpLmV1CjAwOTNpZGVudGlmaWVyIDIvbm1kL3Vzci004M2Qwyzkb09JhKKNkbhE3NDMwYjRmYTAxMDkzMzYzMGNoOGZkYy91amc6ODc2MDkxMmViZWNmZGYxNjQ00ZmUzZmE5MGNkOWRmMDhjaDljMDg6LzJiMjM3NTcxNDlkNzUyZmVjNGU00NDVhNzU5ODBiZjgyY2g5Nzk3CjAwMmZzaWduYXR1cmUgmAJ14AsNbDKcbw1adgmmgomS2q9Hv1Z01PQ4pcgc012DwK</span>
+  <span class="n">PublicURL</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">datahub</span><span class="o">.</span><span class="n">egi</span><span class="o">.</span><span class="n">eu</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="mi">17</span><span class="n">gd43dbede8fh8cbf995f0b4c8f960fchdc1f</span>
+
+</pre></div>
+</div>
+<p>Finaly, fs2od instructs Oneprovider to scan the folder, which populates the corresponding space effectively.</p>
+<p>The facility operator is expected to deliver the access link and the invite token to the user.</p>
+<p>The data storage size at the experimental facility is expected to be of a limited size, and it can guarantee the users
+to keep the acquired data for a fairly short period (weeks to months).
+The users are required to request replication of the data to a long term storage (community or national);
+this is done by technical means of Onedata again.</p>
+</section>
+<section id="community-national-storage-site">
+<h2><span class="section-number">5.2. </span>Community/national storage site<a class="headerlink" href="#community-national-storage-site" title="Permalink to this heading"></a></h2>
+<p>Typically, experimental facilities are not equipped to store huge volumes of user data for long term.
+Therefore the users are required to negotiate data storage capacity elsewhere.
+Possible candidates are storage sites operated by institutiona, national or international user community,
+national e-infrastructure etc.</p>
+<p>Besides the physical storage, the sites are required to run <code class="docutils literal notranslate"><span class="pre">Oneprovider</span></code> in stadard configuration (see <a class="reference external" href="https://onedata.org/#/home/documentation/stable/index.html">Onedata documentation</a>).
+The provider is required to join the <a class="reference external" href="https://datahub.egi.eu">EGI Datahub</a> Onezone instance.</p>
+<p>The provider is strongly encouraged to use <code class="docutils literal notranslate"><span class="pre">S3</span> <span class="pre">storage</span> <span class="pre">backend</span></code>, which we support in turn in the compute client configuration (see bellow).
+Otherwise the provider-client communication falls back to Onedata internal “poor man” protocol with serious to prohibitive impact on
+performance with non-toy datasets.</p>
+</section>
+<section id="compute-site">
+<h2><span class="section-number">5.3. </span>Compute site<a class="headerlink" href="#compute-site" title="Permalink to this heading"></a></h2>
+<p>Extensive computational processing of the experimental data is expected to be done at a computing (cloud) site.
+In order to achieve efficient access to the data, the site must install <code class="docutils literal notranslate"><span class="pre">Oneclient</span></code> including S3 libraries.</p>
+<p>Currently, we support <a class="reference external" href="https://scipion.i2pc.es">Scipion</a> CryoEM software suite, configured in prepared Docker container
+images ready to be used in Kubernetes.
+See our <a href="#id1"><span class="problematic" id="id2">`Github project &lt;https://github.com/CERIT-SC/scipion-docker/tree/k8s-test`_</span></a> for details and documentation.</p>
+<p>This Scipion deployment is given a Oneprovider endpoint, the user’s Onedata <code class="docutils literal notranslate"><span class="pre">token</span></code>.
+It uses Oneclient over S3 to mount the dataset (Onedata space), and it copies it to a local storage typically (for performance reasons).
+Then the data are processed, and results can be uploaded to Onedata again for further sharing.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="components.html" class="btn btn-neutral float-left" title="4. System components" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../user/link.html" class="btn btn-neutral float-right" title="1. Access Link" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Masaryk University.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
